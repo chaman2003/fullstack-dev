@@ -1,239 +1,336 @@
-<!--Basic Structure-->
-<!Doctype html>
+<!--
+TOPICS COVERED IN THIS FILE:
+
+1. HTML Structure
+   - DOCTYPE declaration
+   - HTML, Head, Body structure
+   - Semantic sections (header, main, footer, section)
+
+2. HTML Elements
+   - Headings (h1 to h6)
+   - Paragraphs (p)
+   - Lists (ol, ul, dl, dt, dd)
+   - Tables (table, tr, td, th)
+   - Forms (form, fieldset)
+   - Images (img)
+   - Links (a)
+   - Line breaks (br)
+   - Horizontal rules (hr)
+
+3. Text Formatting
+   - Bold (b, strong)
+   - Italic (i, em)
+   - Marked text (mark)
+   - Subscript (sub)
+   - Superscript (sup)
+   - Monospace text (tt)
+   - Center alignment (center)
+
+4. Attributes
+   - src (for media)
+   - href (for links)
+   - width
+   - alt (for accessibility)
+   - target (for links)
+   - title
+   - type (for inputs)
+   - name
+   - value
+   - required
+   - id
+   - cellpadding
+   - border
+   - align
+   - loop
+   - controls
+   - autoplay
+   - muted
+
+5. Form Elements
+   - Text input
+   - Password input
+   - Radio buttons
+   - Checkboxes
+   - Email input
+   - Date input
+   - Range input
+   - File upload
+   - Submit button
+   - Output display
+
+6. Multimedia
+   - Images (img)
+   - Video (video)
+   - Audio (audio)
+   - iframes (for YouTube)
+
+7. Table Techniques
+   - Headers (th)
+   - Data cells (td)
+   - Rows (tr)
+   - Border
+   - Cell padding
+
+8. Navigation
+   - Internal links (#id references)
+   - External links
+   - Email links (mailto:)
+   - File links
+
+9. Comments
+   - HTML comments for code organization
+   - Section markers
+   - Code documentation
+-->
+
+
+<!-- Basic HTML Page Structure -->
+<!DOCTYPE html>
 <html>
 
 <head>
-     <title>Day 1</title>
+    <!-- Page Title -->
+    <title>Day 1</title>
 </head>
 
 <body>
-     <header>
-          
-          <img src="/assets/img.png" width="50px"><br>
-          <b>Ocean</b>
-          <center><h2>Welcome to my website of ocean</h2></center> 
-          <nav>
 
-               <center>
-               <span>| Home |</span>
-               <span>About us |</span>
-               <span>Contact us | </span>
-               <span>Visit Place |</span>
-               <span>Book slots |</span>
-               </center>
-          </nav>
-          </span>
+    <!-- ================== HEADER SECTION ================== -->
+    <header>
+        <!-- Website Logo -->
+        <img src="assets/img.png" width="50px"><br>
+        <b>Ocean</b>
 
-     </header>
-     <!-- Text Tages -->
-<h1><b><mark>Oceans of Earth</mark></b></h1>
-<h2 id="subscribe">Click here to subscribe our page</h2>
-<hr>
-<h3>Antarctic Ocean</h3>
-<p>The <i>Antarctic Ocean</i>, also known as the <tt><sub>Southern</sub> Ocean</tt>, is the body of water surrounding Antarctica, generally considered to be south of 60°S latitude. It's one of the five major ocean basins on Earth and is characterized by its cold waters and strong currents. The Antarctic Polar Front marks the boundary between the Southern Ocean and the surrounding oceans. </p>
+        <!-- Website Main Heading -->
+        <center><h2>Welcome to my website of ocean</h2></center>
 
-<h2>
+        <!-- Navigation Bar (Links to other pages or sections) -->
+        <nav>
+            <center>
+                <span>| Home |</span>
+                <span>About us |</span>
+                <span>Contact us |</span>
+                <span>Visit Place |</span>
+                <span>Book slots |</span>
+            </center>
+        </nav>
+    </header>
 
-     <img width="400px" src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg?w=1500&h=1500&q=80&auto=format&fit=clip&dm=1740245791&s=5004284c3d9cb14be086d5947f22cf56">
-     <video src="assets/video.mp4" , controls="autoplay", width="400px" , loop , muted></video>
-     <audio src="assets/music.mp3" controls="autoplay" loop ></audio>
-<br>
-<iframe 
-width="400px"
-src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"
->
-</iframe>
+    <!-- ================== MAIN CONTENT SECTION ================== -->
+    <main>
 
-<iframe 
-width="400px"
-src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"
->
-</iframe>
+        <!-- Page Title and Subscription Prompt -->
+        <h1><b><mark>Oceans of Earth</mark></b></h1>
+        <h2 id="subscribe">Click here to subscribe our page</h2>
+        <hr>
 
-<br>
-    <a href="https://en.wikipedia.org/wiki/Antarctica" , target="_blank", title="Place">Click here to know further</a>
-    <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
-     <a href="assets/hello.html">Talk with us</a>
-</h2>
+        <!-- ========== SECTION: Antarctic Ocean ========== -->
+        <section>
+            <h3>Antarctic Ocean</h3>
+            <!-- Description Paragraph with Inline Formatting Tags -->
+            <p>
+                The <i>Antarctic Ocean</i>, also known as the <tt><sub>Southern</sub> Ocean</tt>,
+                is the body of water surrounding Antarctica...
+            </p>
 
-<hr>
-<h3>Indian Ocean</h3>
-<p>The <i>Indian Ocean</i> is the <strong>third-largest</strong> of the world's <tt>five oceanic divisions</tt>, covering 70,560,000 km² or approximately 20% of the water area of Earth's surface. It is bounded by Asia to the north, Africa to the west and Australia to the east</p>
+            <!-- Multimedia Elements: Image, Video, Audio -->
+            <img width="400px" src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg">
+            <video src="assets/video.mp4" controls autoplay muted loop width="400px"></video>
+            <audio src="assets/music.mp3" controls autoplay loop></audio>
+            <br>
 
-<h2>
-     <img width="400px"  src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg?w=1500&h=1500&q=80&auto=format&fit=clip&dm=1740245791&s=5004284c3d9cb14be086d5947f22cf56">
-     <video src="assets/video.mp4" , controls="autoplay", width="400px"></video>
-     <audio src="assets/music.mp3" controls="autoplay" loop ></audio>
-<br>
-<iframe 
-width="400px"
-src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"
->
-</iframe>
+            <!-- Embedded YouTube Videos via Iframe -->
+            <iframe width="400px" src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"></iframe>
+            <iframe width="400px" src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"></iframe>
 
-<iframe 
-width="400px"
-src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"
->
-</iframe>
-    <a href="https://en.wikipedia.org/wiki/Antarctica" , target="_blank", title="Place">Click here to know further</a>
-    <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
-    <a href="assets/hello.html">Talk with us</a>
-</h2>
-<hr>
+            <!-- Reference Links -->
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Antarctica" target="_blank" title="Place">Click here to know further</a>
+            <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
+            <a href="assets/hello.html">Talk with us</a>
+        </section>
+        <hr>
 
-<h3>Atlantic Ocean</h3>
-<p>The <i>Atlantic Ocean</i> is the <strong>second largest</strong> of the world's <tt>five oceanic divisions</tt>, with an area of about 85,133,000 km². It covers approximately 17% of Earth's surface and about 24% of its water surface area</p>
-<h2>
-     <img width="400px" src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg?w=1500&h=1500&q=80&auto=format&fit=clip&dm=1740245791&s=5004284c3d9cb14be086d5947f22cf56">
-     <video src="assets/video.mp4" , controls="autoplay", width="400px"></video>
-     <audio src="assets/music.mp3" controls="autoplay" loop ></audio>
-<br>
-<iframe 
-width="400px"
-src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"
->
-</iframe>
+        <!-- ========== SECTION: Indian Ocean ========== -->
+        <section>
+            <h3>Indian Ocean</h3>
+            <p>The <i>Indian Ocean</i> is the <strong>third-largest</strong> ocean...</p>
 
-<iframe 
-width="400px"
-src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"
->
-</iframe>
-    <a href="https://en.wikipedia.org/wiki/Antarctica" , target="_blank", title="Place">Click here to know further</a>
-    <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
-    <a href="assets/hello.html">Talk with us</a>
-</h2>
-<hr>
-<h3>Arabian Ocean</h3>
-<p>The <i>Arabian Ocean</i> is a region of sea in the <tt><sup>Northern</sup> Indian Ocean</tt>, bounded on the west by the Arabian Peninsula, Gulf of Aden and Guardafui Channel, on the northwest by Gulf of Oman and Iran</p>
+            <!-- Reusing Multimedia Elements -->
+            <img width="400px" src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg">
+            <video src="assets/video.mp4" controls autoplay width="400px"></video>
+            <audio src="assets/music.mp3" controls autoplay loop></audio>
+            <br>
+            <iframe width="400px" src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"></iframe>
+            <iframe width="400px" src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"></iframe>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Antarctica" target="_blank" title="Place">Click here to know further</a>
+            <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
+            <a href="assets/hello.html">Talk with us</a>
+        </section>
+        <hr>
 
-<h2>
-     <img width="400px"  src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg?w=1500&h=1500&q=80&auto=format&fit=clip&dm=1740245791&s=5004284c3d9cb14be086d5947f22cf56">
-     <video src="assets/video.mp4" , controls="autoplay", width="400px"></video>
-     <audio src="assets/music.mp3" controls="autoplay" loop ></audio>
-<br>
-<iframe 
-width="400px"
-src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"
->
-</iframe>
+        <!-- ========== SECTION: Atlantic Ocean ========== -->
+        <section>
+            <h3>Atlantic Ocean</h3>
+            <p>The <i>Atlantic Ocean</i> is the <strong>second largest</strong> ocean...</p>
 
-<iframe 
-width="400px"
-src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"
->
-</iframe>
-    <a href="https://en.wikipedia.org/wiki/Antarctica" , target="_blank", title="Place">Click here to know further</a>
-    <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
-    <a href="assets/hello.html">Talk with us</a>
-</h2>
-<hr>
+            <!-- Media Elements and Resources -->
+            <img width="400px" src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg">
+            <video src="assets/video.mp4" controls autoplay width="400px"></video>
+            <audio src="assets/music.mp3" controls autoplay loop></audio>
+            <br>
+            <iframe width="400px" src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"></iframe>
+            <iframe width="400px" src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"></iframe>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Antarctica" target="_blank" title="Place">Click here to know further</a>
+            <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
+            <a href="assets/hello.html">Talk with us</a>
+        </section>
+        <hr>
 
-<a href="#subscribe"><h1><em>Subscribe For More Updates</em></h1></a> 
+        <!-- ========== SECTION: Arabian Ocean ========== -->
+        <section>
+            <h3>Arabian Ocean</h3>
+            <p>The <i>Arabian Ocean</i> is part of the <tt><sup>Northern</sup> Indian Ocean</tt>...</p>
 
+            <!-- Media & Reference Links -->
+            <img width="400px" src="https://yale-threesixty.transforms.svdcdn.com/production/Antarctic-Waters.jpg">
+            <video src="assets/video.mp4" controls autoplay width="400px"></video>
+            <audio src="assets/music.mp3" controls autoplay loop></audio>
+            <br>
+            <iframe width="400px" src="https://youtube.com/embed/LSU4PKCdFcQ?autoplay=1&mute=1"></iframe>
+            <iframe width="400px" src="https://www.youtube.com/embed/r1_8rRDHtQ8?autoplay=1&mute=1"></iframe>
+            <br>
+            <a href="https://en.wikipedia.org/wiki/Antarctica" target="_blank" title="Place">Click here to know further</a>
+            <a href="mailto:chamans7952@gmail.com">Mail us to know further</a>
+            <a href="assets/hello.html">Talk with us</a>
+        </section>
+        <hr>
 
+        <!-- Anchor Link to Subscription Heading -->
+        <a href="#subscribe"><h1><em>Subscribe For More Updates</em></h1></a>
 
+        <!-- ========== LISTS SECTION ========== -->
+        <section>
+            <!-- Ordered List -->
+            <ol>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Cherry</li>
+                <li>Dragonfruit</li>
+            </ol>
 
-          <ol>
-          <li>apple</li>
-          <li>banana</li>
-          <li>cherry</li>
-          <li>dragonfruit</li>
-     </ol>
+            <!-- Unordered List with Definition List -->
+            <ul>
+                <li>Web Tech</li>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>A markup language for creating web pages.</dd>
+                    <dt>CSS</dt>
+                    <dd>Stylesheet language used to style HTML content.</dd>
+                    <dt>JavaScript</dt>
+                    <dd>Programming language that adds interactivity to websites.</dd>
+                </dl>
+            </ul>
+        </section>
 
-     <ul>
-          <li>Web Tech</li>
-          <dl>
-               <dt>HTML</dt>
-               <dd>A markup language for creating web pages.</dd>
+        <!-- ========== FORM SECTION ========== -->
+        <section>
+            <!-- Basic Form for User Input -->
+            <form action="submit-form">
+                <fieldset>
+                    <!-- Text Inputs -->
+                    <label for="name">Name:</label>
+                    <input type="text"><br>
 
-               <dt>CSS</dt>
-               <dd>Stylesheet language used to style HTML content.</dd>
+                    <label for="password">Password:</label>
+                    <input type="text"><br>
 
-               <dt>JavaScript</dt>
-               <dd>Programming language that adds interactivity to websites.</dd>
-          </dl>
+                    <!-- Radio Buttons -->
+                    <label>Gender:</label>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender"><br>
 
-     </ul>
+                    <!-- Checkboxes -->
+                    <label>Known Languages:</label>
+                    <label for="eng">English</label>
+                    <input type="checkbox" name="lang">
+                    <label for="hin">Hindi</label>
+                    <input type="checkbox" name="lang">
+                    <label for="kan">Kannada</label>
+                    <input type="checkbox" name="lang"><br>
 
+                    <!-- Email, Date, Range -->
+                    <label for="email">Email:</label>
+                    <input type="email" name="email"><br>
 
-     
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" name="dob"><br>
 
-     <form action="submit-form" >
-          <fieldset>
-          <label for="name">name:</label>    
-          <input type="text">
-          <button type="submit">Submit</button>
-          <br>
-          <label for="password ">Password</label>
-          <input type="text">
-          <button type="password">submit</button>
-          <br>
-          <label for="gender">Gender:</label>
-          <label for="male">male</label>
-          <input type="radio" name="gender">
-          <label for="female">female</label>
-          <input type="radio" name="gender">
-          <br>
-          <label for="lang">Known Languages:</label>
-          <label for="eng">English</label>
-          <input type="checkbox" name="lang">
-          <label for="hin">Hindi</label>
-          <input type="checkbox" name="lang">
-          <label for="kan">kannada</label>
-          <input type="checkbox" name="lang">
-          <br>
-          <label for="email">Email:</label>
-          <input type="email" name="email">
-          <button type="submit">Submit</button>
-          <br>
-          <label for="dob">Date of birth</label>
-          <input type="date" name="dob">
-          <br>
-          <label for="range">Range:</label>
-          <input type="range" name="range" min="0" max="100" value="0" oninput="output.value = range.value">
-          <output id="output">0</output>
-          <br>
-          <label for="photo">Your Photo</label>
-          <input type="file" name="photo">
-          <br>
-          <label for="resume">Upload Resume</label>
-          <input type="file" name="resume">
-          <br>
-          <button type="submit">Submit</button>
-          </fieldset>
-     </form>
+                    <label for="range">Range:</label>
+                    <input type="range" name="range" min="0" max="100" value="0" oninput="output.value = range.value">
+                    <output id="output">0</output><br>
 
-     <table border="1">
-         <tr> <th>no</th> <td>1</td> <td>2</td> <td>3</td> </tr>
-          <tr><th>name</th> <td>rishi</td><td>chaman</td><td>harish</td> </tr>
-         <tr> <th>branch <td>aiml</td> <td>ise</td> <td>ise</td></th></tr>
-          
+                    <!-- File Upload -->
+                    <label for="photo">Your Photo:</label>
+                    <input type="file" name="photo"><br>
 
-          <tr>
-               
-          </tr>
+                    <label for="resume">Upload Resume:</label>
+                    <input type="file" name="resume"><br>
 
-     </table>
+                    <!-- Submit Button -->
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+        </section>
 
-     <footer>
-                    <img src="/assets/img.png" width="50px">
-          <center><h2>Welcome to my website of ocean</h2></center> 
-          <b>Ocean</b>
-          <nav>
+        <!-- ========== TABLE SECTION ========== -->
+        <section>
+            <!-- Simple Data Table -->
+            <table border="1">
+                <tr>
+                    <th>No</th>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>Rishi</td>
+                    <td>Chaman</td>
+                    <td>Harish</td>
+                </tr>
+                <tr>
+                    <th>Branch</th>
+                    <td>AIML</td>
+                    <td>ISE</td>
+                    <td>ISE</td>
+                </tr>
+            </table>
+        </section>
+    </main>
 
-               <center>
-               <span>| Home |</span>
-               <span>About us |</span>
-               <span>Contact us | </span>
-               <span>Visit Place |</span>
-               <span>Book slots |</span>
-               </center>
-          </nav>
-          </span>
-
-     </footer>
+    <!-- ================== FOOTER SECTION ================== -->
+    <footer>
+        <!-- Footer Logo & Navigation -->
+        <img src="assets/img.png" width="50px"><br>
+        <b>Ocean</b>
+        <center><h2>Welcome to my website of ocean</h2></center>
+        
+        <!-- Footer Navigation -->
+        <nav>
+            <center>
+                <span>| Home |</span>
+                <span>About us |</span>
+                <span>Contact us |</span>
+                <span>Visit Place |</span>
+                <span>Book slots |</span>
+            </center>
+        </nav>
+    </footer>
 
 </body>
 
