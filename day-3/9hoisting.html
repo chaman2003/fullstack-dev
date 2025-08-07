@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * JavaScript Hoisting Examples
+         * Demonstrates how JavaScript hoisting works with variables and functions
+         * 
+         * Hoisting is JavaScript's default behavior of moving declarations to the top.
+         * - Variable declarations (not initializations) are hoisted
+         * - Function declarations are hoisted completely
+         */
+
+        // Example 1: Variable hoisting with 'var'
+        var a = 10
+        var b; // Declared but not initialized
+        let add = () => {
+            console.log(a + b) // 'b' is undefined here, so result will be NaN
+        }
+        add()
+        b = 10; // Initialized after the function call
+
+        // Example 2: Function declaration hoisting
+        // Function can be called before its declaration
+        sayHello(); // Works because function declarations are hoisted
+        function sayHello() {
+            console.log("Hello");
+        }
+
+        // Example 3: Function expressions are not hoisted
+        // This would cause an error if uncommented
+        // sayHello();
+        // const sayHello = () => {
+        //     console.log("Hello");
+        // };
+
+    </script>
+</body>
+
+</html>
