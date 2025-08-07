@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope
+    </title>
+</head>
+<body>
+    
+    <script>
+    /**
+     * JavaScript Scope Examples
+     * Demonstrates different types of scopes:
+     * - global scope
+     * - function scope
+     * - block scope
+     * - lexical scope
+     * - variable behavior with const vs let vs var
+     */
+
+    // Global scope variable - accessible anywhere in the code
+    let gv = 'Hello';
+
+    // Function demonstrating access to global variable
+    const isglobal = () => {
+        if (gv) {
+            console.log(gv); // Can access global variable 'gv'
+        }
+    }
+    isglobal()
+
+    // Function scope - 'fv' is only accessible within this function
+    const isFunction = () => {
+        var fv = "Hi";
+        console.log(fv);
+    }
+    isFunction();
+    // console.log(fv) // Would cause error: fv is not defined
+
+    // Block scope - 'bv' is only accessible within the if block
+    const isBlock = () => {
+        if (true) {
+            let bv = "Hey"; // 'bv' has block scope due to 'let'
+            console.log(bv);
+        }
+        // console.log(bv) // Would cause error: bv is not defined
+    }
+    isBlock();
+
+    // Demonstrating 'var' behavior - function scoped but can be modified from any scope
+    var x = "CHAMMY" // global
+    const global = () => {
+        x = "meow meow" // modifies global 'x'
+        console.log(x);
+        if (x) {
+            x = "bow bow" // modifies global 'x' again
+            console.log(x);
+        }
+    }
+    console.log(x) // Original value before calling the function
+
+    // Demonstrating 'let' behavior - block scoped
+    let p = "CHAMMY" // global
+    const bew = () => {
+        p = "meow meow" // modifies global 'p'
+        console.log(pq); // This will cause an error: pq is not defined
+        if (x) {
+            p = "bow bow" // modifies global 'p' again
+            console.log(p);
+        }
+    }
+    console.log(p) // Original value before calling the function
+    
+    </script>
+
+</body>
+</html>

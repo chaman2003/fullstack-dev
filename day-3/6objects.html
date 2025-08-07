@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    /**
+     * JavaScript Objects Example
+     * Demonstrates object creation, property access, modification, and methods
+     */
+
+    // Creating an object with multiple properties
+    let person = {
+      name: "chaman", 
+      gender: "male",  
+      age: 25, 
+      isadult: true
+    };
+    console.log(person) // Displays the complete person object
+    
+    // Deleting a property from an object
+    delete person.name
+    console.log(person) // Object after deletion of the name property
+    
+    // Accessing object properties using dot notation
+    console.log(person.gender) // Outputs: "male"
+    
+    // Modifying an object property and returning the new value
+    console.log(person.age="30") // Updates age and outputs: "30"
+    
+    // Accessing a boolean property
+    console.log(person.isadult) // Outputs: true
+    
+    // Creating an object with a method (function as a property)
+    let person1 = {
+      add: function() {
+        return "chaman";
+      }
+    };
+    
+    // Calling an object method
+    console.log(person1.add()); // Outputs: "chaman"
+
+    </script>
+</body>
+</html>

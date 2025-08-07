@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables
+    </title>
+</head>
+<body>
+    
+<script>
+/**
+ * JavaScript Data Types Examples
+ * Demonstrates various data types in JavaScript:
+ * - string, number, boolean, undefined, null, 
+ * - object, array, bigInt, symbol
+ */
+
+// Variable declarations for different data types
+let v1 = "Chaman";               // String type
+let v2 = 23;                     // Number type
+let v3 = true;                   // Boolean type
+let v4;                          // Undefined type
+let v5 = null;                   // Null type
+let v6 = { name: "chaman", age: 23 }; // Object type
+let v7 = ["apple", "banana", "cherry"]; // Array type (object subtype)
+let v8 = 981165165156198489168414981981816548894894n; // BigInt type
+let v9 = Symbol("id");           // Symbol type
+
+// Display the type of each variable using typeof operator
+console.log(typeof v1);          // Outputs: string
+console.log(typeof v2);          // Outputs: number
+console.log(typeof v3);          // Outputs: boolean
+console.log(typeof v4);          // Outputs: undefined
+console.log(typeof v5);          // Outputs: object (historical bug in JavaScript)
+console.log(typeof v6);          // Outputs: object
+console.log(typeof v7);          // Outputs: object (arrays are objects in JavaScript)
+console.log(typeof v8);          // Outputs: bigint
+console.log(typeof v9);          // Outputs: symbol
+
+</script>
+
+</body>
+</html>

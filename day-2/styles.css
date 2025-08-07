@@ -1,0 +1,163 @@
+/* Import modular CSS files */
+@import 'css/main.css';
+@import 'css/components.css';
+
+#id{
+    color: blue;
+}
+
+.class{
+    color: green;
+}
+
+h1,h2,h3{
+    color: purple;
+}
+
+#o1{
+    text-align: center;
+    letter-spacing: 5px;
+    /* letter-spacing: normal; */
+    text-decoration: line-through;
+    word-spacing: 10px;
+    text-transform: lowercase;
+}
+#o2{
+    text-align: end;
+    text-decoration: double underline;
+    text-transform: uppercase;
+}
+#o3{
+    text-align: right;
+    text-align: unset;
+    text-decoration: dotted overline;
+    text-transform: initial;
+    text-indent: 20px;
+}
+#o4{
+    text-align: left;
+    text-decoration:  underline; 
+    line-height: 5px;
+}
+#o5{
+    text-align: start;
+    line-height: 25px;
+
+}
+#o6{
+    text-align: inherit;
+}
+#o7{
+    text-align: justify;
+    
+}
+.bg{
+    background-image: url('https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg');
+    background-repeat: no-repeat;
+    /* background-size: cover */
+    background-SIZE: contain;
+    /* background-repeat: AUTO; */
+    background-color: lightblue;
+    background-position: 40px;
+}
+/* .border{
+    border: 5px black solid;
+    border-radius: 5px;
+} */
+.abc{
+    border: 5px black solid;
+    border-radius: 5px;
+
+padding: 100px
+padding
+}
+.def{
+    border: 5px black solid;
+    border-radius: 5px;
+}
+
+#outer{
+    border: 5px solid black;
+    padding: 20px;
+    border-radius: 15px;
+}
+button{
+    margin-left: 325px;
+    
+}
+
+
+#inner{
+    border: 5px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#g{
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+#ig{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+}
+
+#three{
+    background-color: aqua;
+    padding: 10px;
+    border: rgb(0, 0, 0) 10px solid;
+    display:flex;
+    justify-content: space-between; #horizontally long
+    align-items: center; #long vertically
+
+}
+
+#three:hover {
+  color: crimson;
+  text-decoration: underline;
+}
+
+button {
+  background-color: rgb(254, 39, 39);
+  transition: background-color 0.5s ease;
+}
+
+button:hover {
+  background-color: rgb(0, 228, 0);
+}
+
+@keyframes bounce {
+    from{transform:translateY(0);}
+    to{transform:translatey(-20px);}
+    
+}
+
+
+
+#three {
+animation: bounce 1s infinite;
+}
+#flex1{
+    display: flexbox;
+    border: 5px solid black;
+}
+#flex2{
+    display: flex;
+    padding: 40px;
+    border: 5px solid black;
+    gap: 20px;
+}
+#main{
+    border: 10px solid black;
+    display: flex;
+    padding: 40PX;
+    align-items: center;
+    justify-content: space-between;
+}
+/* h1{
+    text-align: center;
+    display: flex;
+    align-items: center;
+} */

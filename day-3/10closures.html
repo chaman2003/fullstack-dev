@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closures</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * JavaScript Closures Examples
+         * 
+         * A closure is the combination of a function bundled together with references to its surrounding state.
+         * In JavaScript, closures are created every time a function is created, at function creation time.
+         */
+
+        // Example 1: Closure without parameters
+        // Inner function has access to the outer function's scope
+        function outer() {
+            function inner() {
+                return "I am from inner";
+            }
+
+            return `I am from outside ${inner()}`;
+        }
+
+        console.log(outer()); // Outputs: "I am from outside I am from inner"
+
+        // Example 2: Closure with parameters
+        // Inner function has access to the outer function's parameters
+        function outer(a, b) {
+            function inner() {
+                return a + b; // Using parameters from outer function
+            }
+            return `Multiplication ${a * b}, Addition is ${inner()}`;
+        }
+        console.log(outer(6, 2)); // Outputs: "Multiplication 12, Addition is 8"
+
+    </script>
+</body>
+
+</html>

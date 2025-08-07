@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body>
+    <script>
+        /**
+         * JavaScript Functions Examples
+         * Demonstrates different ways to create and use functions
+         */
+
+        // Traditional function declaration without parameters
+        function hello(){
+            console.log("Namskara")
+        }
+        hello() // Function call
+
+        // Function with parameters and return value
+        function add(a,b){
+            return `Addition of a and b is ${a+b}`
+        }
+        console.log(add(1,5)); // Outputs: "Addition of a and b is 6"
+
+        // Arrow function with parameter (but not using it)
+        let name = (n) => {
+            console.log("namaskara")
+        }
+        name() // Function call
+
+        // Arrow function with parameters and return value
+        let divide = (n1,n2) =>{
+            return `division is ${n1 / n2}`;
+        }
+        console.log(divide(6,3)) // Outputs: "division is 2"
+
+        // Using global variables inside arrow function
+        n1=12
+        n2=3
+        let divided = (n) => {
+            console.log(n1/n2) // Using global variables
+        }
+        divided() // Outputs: 4
+
+        // Arrow function with conditional logic
+        a=10
+        let guess = (a) =>
+        {
+            if (a>10){
+                return `a is greater than 10`
+            }
+            else{
+                return `a is 10`
+            }
+        }
+        console.log(guess()); // Outputs: "a is 10"
+
+        // Complex arrow function that calls another function
+        let meow = (n,q) =>
+        {
+            let sum=add(n,q) // Calling the add function defined earlier
+            if (sum > 10) {
+                 return `The sum ${sum} is greater than 10.`;
+            } else {
+                return `The sum ${sum} is not greater than 10.`;
+            }
+        }
+        console.log(meow(2,5)) // Outputs: "The sum Addition of a and b is 7 is not greater than 10."
+
+    </script>
+</body>
+</html>

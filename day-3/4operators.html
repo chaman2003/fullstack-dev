@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+</head>
+<body>
+    <script>
+    /**
+     * JavaScript Operators Examples
+     * Demonstrates various types of operators:
+     * - Assignment operators
+     * - Arithmetic operators
+     * - Comparison operators
+     * - Logical operators
+     * - String operators
+     * - Type operators
+     * - Ternary operators
+     */
+
+    // Assignment operator example
+    let a1 = 2
+    a1 **= a1  // Exponentiation assignment operator: a1 = a1 ** a1 (2^2 = 4)
+    console.log(a1)
+
+    // Arithmetic operators
+    let a = 2, b = 3
+    console.log("add:", a + b)      // Addition: 5
+    console.log("Sub:", a - b)      // Subtraction: -1
+    console.log("multiply:", a * b) // Multiplication: 6
+    console.log("Modulus", a % b)   // Modulus (remainder): 2
+    console.log("Division", a / b)  // Division: 0.6666...
+    console.log("Exponent", a ** b) // Exponentiation: 8 (2^3)
+
+    // Comparison operators
+    let ac = 10, ab = 20, aa = null;
+
+    let c1 = (ac == ab);  // Equal to: false
+    let c2 = (ac === ab); // Equal value and type: false
+    let c3 = (ac != ab);  // Not equal: true
+    let c4 = (ac !== ab); // Not equal value or type: true
+    let c5 = (ac > ab);   // Greater than: false
+    let c6 = (ac < ab);   // Less than: true
+    let c7 = (ac >= ab);  // Greater than or equal to: false
+    let c8 = (ac <= ab);  // Less than or equal to: true
+    let c9 = (aa ?? ab);  // Nullish coalescing: returns ab (20) because aa is null
+
+    console.log(c1); // false
+    console.log(c2); // false
+    console.log(c3); // true
+    console.log(c4); // true
+    console.log(c5); // false
+    console.log(c6); // true
+    console.log(c7); // false
+    console.log(c8); // true
+    console.log(c9); // 20
+
+    // Logical operators
+    let al = true;
+    let bl = false;
+
+    let l1 = (al && bl); // Logical AND: false (both must be true)
+    let l2 = (al || bl); // Logical OR: true (at least one must be true)
+    let l3 = (!al);      // Logical NOT: false (inverts the boolean value)
+
+    console.log(l1); // false
+    console.log(l2); // true
+    console.log(l3); // false
+
+    // String operator (concatenation)
+    let s1 = "Hello";
+    let s2 = "World";
+    let s3 = s1 + " " + s2; // String concatenation
+    console.log(s3); // "Hello World"
+
+    // Type operator (typeof)
+    let t1 = 42;
+    let t2 = "123";
+    let t3 = true;
+
+    console.log(typeof t1); // "number"
+    console.log(typeof t2); // "string" 
+    console.log(typeof t3); // "boolean"
+
+    // Ternary operator (condition ? expressionIfTrue : expressionIfFalse)
+    let m = 10;
+    let n = 20;
+    let res = (m > n) ? "m is huge" : "n is huge"; // Evaluates to "n is huge"
+    console.log(res); // "n is huge"
+
+    </script>
+
+</body>
+</html>
