@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+//promises 
+        let proposal = new Promise((resolve, reject) => {
+    let success = true;
+
+    if (success) {
+        resolve("Maduve Hagona");
+    } else {
+        reject("I also thought u as a friend");
+    }
+});
+
+proposal
+    .then(marriage => console.log("madona:",marriage))   
+    .catch(Breakup => console.log("Beda",Breakup));  
+    
+//promises chaining
+let firstStep = new Promise((resolve, reject) => {
+    let success = true;
+
+    if (success) {
+        resolve("Ninna mele ishta ide");
+    } else {
+        reject("Ninna mele ishta illa");
+    }
+});
+
+firstStep
+    .then(propose => {
+        console.log("Step 1:", propose);
+        return "Matte meeting arrange madona";
+    })
+    .then(nextStep => {
+        console.log("Step 2:", nextStep);
+        return "Gift kodthini";
+    })
+    .then(finalStep => {
+        console.log("Step 3:", finalStep);
+    })
+    .catch(error => {
+        console.log("Ayyo break:", error);
+    });
+
+
+    </script>
+
+
+</body>
+</html>

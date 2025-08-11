@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //destructing 
+        let fruits = ["apple", "banana", "Mango"]
+        let [first, second, three] = fruits
+        console.log(first)
+
+        let person = { "name": "chaman", "age": 22, "sex": "male" }
+
+        // let {name,age,sex}=person
+        // console.log(name,age,sex)
+
+        //nested destructing
+        let man = {
+            id: "69420",
+            info: {
+
+                name: "chaman", age: 22, sex: "male", location: {
+                    area: "konankunte", state: "karnataka"
+                }
+            }
+        }
+        let { id, info: { name, age, sex, location: { area } } } = man
+        console.log(id)
+
+        let fruit = ["Orange"]
+        let [frst="Apricot", secnd="kiwi"] = fruits
+        console.log(first)
+
+        let animal=["cat","dog","dinosaur","cow","sheep","wolf"]
+        let [frist, ...rest]=animal
+        console.log(rest)
+
+        //function destructing 
+        // function add(){
+
+        //     function adding(x,y){
+        //         return x+y;
+        //     }
+        //     return ;
+        // }
+        // console.log(15+5)
+
+        
+    </script>
+</body>
+
+
+</html

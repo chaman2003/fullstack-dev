@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //spread
+        function spreadArg() {
+            let arr1 = [1, 2, 3];
+            let arr2 = [...arr1, 4, 5, 6];
+            console.log(arr2);
+        }
+        spreadArg()
+
+        function spreadObj() {
+            let obj1 = { name: "Chaman", Age: 23 };
+            let obj2 = { ...obj1, sex: "Male", location: "Bangalore" }
+            console.log(obj2);
+        }
+        spreadObj()
+
+        //rest
+        function restArg() {
+            let { front, ...rest } = [1, 2, 3, 4, 5, 6]
+            console.log(rest);
+        }
+        restArg()
+
+        function restObj() {
+            let { front, ...rest } = { namee: "Chaman", Agee: 23, sexx: "Male", locationn: "Bangalore" }
+            console.log(rest);
+        }
+        restObj()
+
+        console.warn("")
+        //combine spread rest
+        function combine() {
+            function inner() {
+                let { front, ...rest } = { namee: "Chaman", Agee: 23, sexx: "Male", locationn: "Bangalore" }
+                console.log(rest);
+            }
+            inner()
+            let obj1 = { name: "Chaman", Age: 23 };
+            let obj2 = { ...obj1, sex: "Male", location: "Bangalore" }
+            console.log(obj2);
+        }
+        combine()
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //callbacks
+
+        function greet(name) {
+
+            console.log(`Hello ${name}`)
+        }
+
+        function getusername(callbacks) {
+            const name = "chaman";
+            callbacks(name);
+        }
+        getusername(greet)
+
+        //SYNCHRONOUS - Immediately run upon execution 
+
+        function dog() {
+
+            console.log(`Your dog breed is `)
+        
+
+        setInterval ( () => {
+            console.log("Golden Retriever");
+            
+        },2000)}
+
+        dog()
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

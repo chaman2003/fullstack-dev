@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //ARRAY can be declared using 2 methods by just declaring and by using a constructor with new keyword
+        let a=[6,9,420,7];
+        console.log(a);
+        
+        let b= new Array(6,9,420,7,8,9,10)
+        console.log(b);
+
+        //accessing and modifying array
+        console.log(b[1])
+        b[3]=69
+        console.log(b)
+
+        let c=[];
+        console.log(c);
+
+        //array methods
+        let fruits=["apple", "banana", "mango"]
+        console.log(fruits)
+        fruits.pop(1)
+        console.log(fruits)
+        fruits.push("Guava")
+        console.log(fruits)
+        fruits.unshift("kiwi")
+        console.log(fruits)
+        fruits.shift()
+        console.log(fruits)
+
+        //array searching
+        let num=[1,2,3,4,5,7,2,1]
+        console.log(num.indexOf(2))
+        console.log(num.lastIndexOf(3))
+        console.log(num.includes(420))
+
+        //array iteration
+        for(i=0;i<num.length;i++){
+            console.log(num[i])
+        }
+        console.warn(" 2 methods")
+
+        for (i of num){
+            console.log(i)
+        }
+        console.warn("For each")
+        num.forEach(i=>console.log(i))
+
+        //Tranforming arrays 
+        console.warn("")
+        console.log(num)
+        
+        let arraymap=num.map(i=>i**3)
+        console.log(arraymap)
+
+        let arrayfilter=num.filter(i=>i%2)
+        console.log(arrayfilter)
+
+        let arrayreduce=num.reduce((sum,i)=> sum+1);
+        console.log(arrayreduce)
+
+        //Slicing
+        let phones=["Poco","Samsung","nokia","Apple"]
+        slice=phones.slice(1,4)
+        console.log(slice)
+
+        //splicing
+        splice=phones.splice(2,1,"Lava")
+        console.log(phones)
+
+        //joining
+        console.log(phones.join("-")); 
+
+        //sorting
+        console.log(num.sort())
+        sortAsc=num.sort((a,b)=>b-a)
+        console.log(sortAsc)
+
+        sortDsc=num.sort((a,b)=>b+a)
+        console.log(sortDsc)
+
+        sortAscStr=phones.sort((a,b)=>a-b)
+        console.log(sortAscStr)
+
+        sortDscStr=phones.sort((a,b)=>a-b)
+        console.log(sortDscStr)
+
+        //reverse
+        console.log(num.reverse())
+        console.log(phones.reverse())
+
+        //Combining
+        concat=phones.concat("Meow")
+        console.log(concat)
+
+        let laptops=["Asus","Apple","HP", "Dell","Acer" ]
+        let spreading=[...phones,...laptops]
+        console.log(spreading)
+        console.log(..."hello")
+
+        let str=["Hello","Maccha"]
+        console.log(...str)
+        console.log([...str])
+
+        //flattening
+        let arry=[1, [2, [3]]]
+        let flatten=arry.flat(1
+            
+        );
+        console.log(flatten)
+
+
+
+    </script>
+
+</body>
+</html>
