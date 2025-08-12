@@ -3,57 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Promises</title>
 </head>
 <body>
     
-
     <script>
-//promises 
+        /**
+         * JAVASCRIPT PROMISES
+         * 
+         * This file demonstrates JavaScript Promises, which are objects representing the 
+         * eventual completion or failure of an asynchronous operation.
+         * Promises have three states: pending, fulfilled (resolved), or rejected.
+         */
+
+        // BASIC PROMISE EXAMPLE
+        // Creating a new Promise that simulates a marriage proposal
         let proposal = new Promise((resolve, reject) => {
-    let success = true;
+            let success = true;  // Change to false to see rejection behavior
 
-    if (success) {
-        resolve("Maduve Hagona");
-    } else {
-        reject("I also thought u as a friend");
-    }
-});
+            if (success) {
+                resolve("Maduve Hagona");  // If successful, resolve with success message
+            } else {
+                reject("I also thought u as a friend");  // If failed, reject with failure message
+            }
+        });
 
-proposal
-    .then(marriage => console.log("madona:",marriage))   
-    .catch(Breakup => console.log("Beda",Breakup));  
-    
-//promises chaining
-let firstStep = new Promise((resolve, reject) => {
-    let success = true;
+        // Handling the Promise with then() and catch()
+        proposal
+            .then(marriage => console.log("madona:", marriage))   // Executes if promise resolves
+            .catch(Breakup => console.log("Beda", Breakup));      // Executes if promise rejects
+        
+        // PROMISE CHAINING EXAMPLE
+        // Creating a promise that represents a multi-step relationship process
+        let firstStep = new Promise((resolve, reject) => {
+            let success = true;  // Change to false to see rejection flow
 
-    if (success) {
-        resolve("Ninna mele ishta ide");
-    } else {
-        reject("Ninna mele ishta illa");
-    }
-});
+            if (success) {
+                resolve("Ninna mele ishta ide");  // "I like you" - First step success
+            } else {
+                reject("Ninna mele ishta illa");  // "I don't like you" - Rejection
+            }
+        });
 
-firstStep
-    .then(propose => {
-        console.log("Step 1:", propose);
-        return "Matte meeting arrange madona";
-    })
-    .then(nextStep => {
-        console.log("Step 2:", nextStep);
-        return "Gift kodthini";
-    })
-    .then(finalStep => {
-        console.log("Step 3:", finalStep);
-    })
-    .catch(error => {
-        console.log("Ayyo break:", error);
-    });
-
-
+        // Promise chain demonstrating multiple sequential steps with then()
+        firstStep
+            .then(propose => {
+                console.log("Step 1:", propose);  // Handle first response
+                return "Matte meeting arrange madona";  // Return value for next then()
+            })
+            .then(nextStep => {
+                console.log("Step 2:", nextStep);  // Handle second step
+                return "Gift kodthini";  // Return value for next then()
+            })
+            .then(finalStep => {
+                console.log("Step 3:", finalStep);  // Handle final step
+            })
+            .catch(error => {
+                // This catches any rejection in the chain
+                console.log("Ayyo break:", error);
+            });
     </script>
-
 
 </body>
 </html>

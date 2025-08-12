@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="button">Click Me</button>
+
+    <script>
+        const btn=document.getElementById("button");
+        btn.style.color="red"
+
+        //click action
+        btn.addEventListener("click", ()=> {
+                console.log("Button clicked");
+            });
+
+        //hover effect
+                btn.addEventListener("mouseover", ()=> {btn.style.color="blue";
+            });
+            
+                btn.addEventListener("mouseout", ()=> {btn.style.color="red";
+            });
+
+            
+
+
+
+        
+        
+    </script>
+
+</body>
+
+</html>

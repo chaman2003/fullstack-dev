@@ -1,0 +1,81 @@
+body {
+    background: #8C52FF;
+    font-family: Arial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#app {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+#suggestions {
+    position: absolute;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    display: none;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+#suggestions div:hover {
+    background: #f0f0f0;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #debff4;
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    background: #8b48d7;
+}
+
+.weather {
+    color: white;
+    margin-top: 20px;
+}
+
+.temp {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}

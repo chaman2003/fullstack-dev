@@ -4,44 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Callbacks</title>
 </head>
 
 <body>
 
     <script>
+        /**
+         * JAVASCRIPT CALLBACKS
+         * 
+         * This file demonstrates callback functions in JavaScript.
+         * A callback is a function passed as an argument to another function,
+         * which is then invoked inside the outer function to complete an action.
+         */
 
-        //callbacks
-
+        // BASIC CALLBACK EXAMPLE
+        // Define a function that will be used as a callback
         function greet(name) {
-
-            console.log(`Hello ${name}`)
+            console.log(`Hello ${name}`)  // Function that greets a person
         }
 
+        // Function that accepts a callback function as a parameter
         function getusername(callbacks) {
-            const name = "chaman";
-            callbacks(name);
+            const name = "chaman";  // Get a name (normally might be from user input or API)
+            callbacks(name);        // Execute the callback function with the name parameter
         }
-        getusername(greet)
+        // Call getusername with greet as the callback
+        getusername(greet)  // Outputs: "Hello chaman"
 
-        //SYNCHRONOUS - Immediately run upon execution 
-
+        // ASYNCHRONOUS CALLBACK EXAMPLE
+        // Function demonstrating both immediate execution and delayed execution with setInterval
         function dog() {
-
+            // This executes immediately
             console.log(`Your dog breed is `)
         
+            // This is an asynchronous callback that executes after a delay
+            setInterval(() => {
+                console.log("Golden Retriever");  // This will run every 2 seconds
+            }, 2000)  // 2000 milliseconds = 2 seconds
+        }
 
-        setInterval ( () => {
-            console.log("Golden Retriever");
-            
-        },2000)}
-
+        // Execute the function
         dog()
-
-
-
-
-
     </script>
 
 </body>

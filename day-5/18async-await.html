@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        function greet() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Bow Bow");
+                }, 2000);
+            });
+        }
+        function greetmeow() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("Meow Meow");
+                }, 3000);
+            });
+        }
+        //without then catch
+        async function greetbro1() {
+            let greeting = await greet()
+            console.log("Greet done")
+        }
+
+        //with then catch
+
+        async function greetbro2() {
+            await greet()
+                .then(greet => console.log(greet))
+                .catch(error => console.log(error))
+           
+            await greetmeow()
+                .then(greet => console.log(greet))
+                .catch(error => console.log(error))
+
+        }
+        greetbro1()
+        greetbro2()
+
+
+    </script>
+
+</body>
+
+</html>

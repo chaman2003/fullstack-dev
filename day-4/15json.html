@@ -4,31 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JSON in JavaScript</title>
 </head>
 
 <body>
     <script>
+        /**
+         * JSON (JAVASCRIPT OBJECT NOTATION)
+         * 
+         * This file demonstrates working with JSON in JavaScript.
+         * JSON is a lightweight data interchange format that is easy for humans to read and write
+         * and easy for machines to parse and generate.
+         */
 
-        //json stringify = object to string
+        // JSON.stringify() - CONVERT OBJECT TO JSON STRING
+        // Converts a JavaScript object into a JSON-formatted string
         function stringify() {
+            // Create a JavaScript object
             const person = {
                 name: "Chaman",
                 age: 25,
                 city: "Delhi"
             };
-            return JSON.stringify(person)
-            
+            // Convert object to JSON string
+            return JSON.stringify(person)  
+            // Returns: '{"name":"Chaman","age":25,"city":"Delhi"}'
         }
-        console.log(stringify())
+        console.log(stringify())  // Output the JSON string
 
-        //json parse = string to object
+        // JSON.parse() - CONVERT JSON STRING TO OBJECT
+        // Converts a JSON-formatted string back into a JavaScript object
         function parsing(){
+            // Parse the JSON string returned by stringify() back to an object
             console.log(JSON.parse(stringify()))
+            // Outputs: {name: "Chaman", age: 25, city: "Delhi"}
         }
         parsing()
 
-        //nested json is also there
+        // NOTE: JSON supports nested structures
+        // Objects and arrays can be nested within JSON
+        // Example: {"name":"John", "address":{"street":"Main St", "city":"New York"}}
 
     </script>
 </body>

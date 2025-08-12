@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Error Handling in JavaScript</title>
 </head>
 <body>
     <script>
+        /**
+         * ERROR HANDLING IN JAVASCRIPT
+         * 
+         * This file demonstrates how to handle errors in JavaScript using try-catch-finally blocks.
+         * Error handling is essential for gracefully managing unexpected situations in code.
+         */
         
+        // Example 1 (Commented): Custom error creation and handling
+        // This example shows how to throw a custom error and catch it
         // try{
-
+        //     // Creating and throwing a new Error object
         //     throw new Error("New Error");
-
         // } catch (error){
-        //         console.log(error)
-        //         console.error("hi")
-        //         console.warn("hi")
-        //     }
-        //     finally{
-        //         console.log("Error caught sucessfully")
-        //     }
+        //     // Handling the error in different ways
+        //     console.log(error)         // Standard output
+        //     console.error("hi")        // Error output (red in console)
+        //     console.warn("hi")         // Warning output (yellow in console)
+        // }
+        // finally{
+        //     // Finally block always executes regardless of whether an error occurred
+        //     console.log("Error caught sucessfully")
+        // }
 
-            try{
-                a=10/0
-                b=a
-                console.log(b)
-            }
-            catch(b){
-                
-                console.log("infinity is seen")
-                // console.log(b)
-            }
-            
-        
-        
-        
-
+        // Example 2: Handling division by zero
+        // In JavaScript, division by zero results in Infinity, not an error
+        try{
+            // Attempting a division by zero operation
+            a=10/0              // This results in Infinity, not an error in JavaScript
+            b=a                 // Assigning the result to another variable
+            console.log(b)      // Logging the result (will show "Infinity")
+        }
+        catch(b){
+            // This block will only execute if an actual error occurs
+            console.log("infinity is seen")
+            // console.log(b)   // Would display the error object if uncommented
+        }
     </script>
 </body>
 </html>

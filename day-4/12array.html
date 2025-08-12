@@ -3,120 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Arrays</title>
 </head>
 <body>
     <script>
+        /**
+         * JAVASCRIPT ARRAYS
+         * 
+         * This file demonstrates various array operations and methods in JavaScript.
+         * Arrays are ordered collections that can store multiple values of any type.
+         */
 
-        //ARRAY can be declared using 2 methods by just declaring and by using a constructor with new keyword
+        // ARRAY DECLARATION - Two methods to create arrays
+        // Method 1: Using array literal notation (square brackets)
         let a=[6,9,420,7];
         console.log(a);
         
+        // Method 2: Using the Array constructor with new keyword
         let b= new Array(6,9,420,7,8,9,10)
         console.log(b);
 
-        //accessing and modifying array
-        console.log(b[1])
-        b[3]=69
+        // ACCESSING AND MODIFYING ARRAY ELEMENTS
+        // Arrays are zero-indexed (first element is at position 0)
+        console.log(b[1])       // Access the second element (value 9)
+        b[3]=69                 // Modify the fourth element (change 7 to 69)
         console.log(b)
 
+        // Creating an empty array
         let c=[];
         console.log(c);
 
-        //array methods
+        // BASIC ARRAY METHODS
         let fruits=["apple", "banana", "mango"]
         console.log(fruits)
-        fruits.pop(1)
+        fruits.pop(1)           // Removes the last element (parameter is ignored)
         console.log(fruits)
-        fruits.push("Guava")
+        fruits.push("Guava")    // Adds a new element to the end of the array
         console.log(fruits)
-        fruits.unshift("kiwi")
+        fruits.unshift("kiwi")  // Adds a new element to the beginning of the array
         console.log(fruits)
-        fruits.shift()
+        fruits.shift()          // Removes the first element from the array
         console.log(fruits)
 
-        //array searching
+        // ARRAY SEARCHING METHODS
         let num=[1,2,3,4,5,7,2,1]
-        console.log(num.indexOf(2))
-        console.log(num.lastIndexOf(3))
-        console.log(num.includes(420))
+        console.log(num.indexOf(2))     // Returns the first index where 2 appears (1)
+        console.log(num.lastIndexOf(3))  // Returns the last index where 3 appears (2)
+        console.log(num.includes(420))   // Returns false as 420 is not in the array
 
-        //array iteration
+        // ARRAY ITERATION METHODS
+        // Method 1: Traditional for loop
         for(i=0;i<num.length;i++){
             console.log(num[i])
         }
         console.warn(" 2 methods")
 
+        // Method 2: For...of loop (ES6 feature)
         for (i of num){
             console.log(i)
         }
         console.warn("For each")
+        // Method 3: forEach method with arrow function
         num.forEach(i=>console.log(i))
 
-        //Tranforming arrays 
+        // ARRAY TRANSFORMATION METHODS
         console.warn("")
         console.log(num)
         
-        let arraymap=num.map(i=>i**3)
+        // map(): Creates a new array by transforming each element
+        let arraymap=num.map(i=>i**3)    // Cubes each number in the array
         console.log(arraymap)
 
-        let arrayfilter=num.filter(i=>i%2)
+        // filter(): Creates a new array with elements that pass the test
+        let arrayfilter=num.filter(i=>i%2)  // Returns only odd numbers
         console.log(arrayfilter)
 
-        let arrayreduce=num.reduce((sum,i)=> sum+1);
+        // reduce(): Reduces array to a single value
+        let arrayreduce=num.reduce((sum,i)=> sum+1);  // Counts elements (adding 1 for each)
         console.log(arrayreduce)
 
-        //Slicing
+        // ARRAY MANIPULATION METHODS
+        // slice(): Returns a new array with selected elements (non-destructive)
         let phones=["Poco","Samsung","nokia","Apple"]
-        slice=phones.slice(1,4)
+        slice=phones.slice(1,4)  // Elements from index 1 up to (but not including) 4
         console.log(slice)
 
-        //splicing
-        splice=phones.splice(2,1,"Lava")
+        // splice(): Changes the contents of an array by removing/replacing elements (destructive)
+        splice=phones.splice(2,1,"Lava")  // Replace 1 element at index 2 with "Lava"
         console.log(phones)
 
-        //joining
+        // join(): Joins all elements into a string with specified separator
         console.log(phones.join("-")); 
 
-        //sorting
+        // ARRAY SORTING METHODS
+        // sort(): Sorts elements (by default as strings)
         console.log(num.sort())
+        
+        // Custom sort with compare function (descending numeric sort)
         sortAsc=num.sort((a,b)=>b-a)
         console.log(sortAsc)
 
+        // Another custom sort example
         sortDsc=num.sort((a,b)=>b+a)
         console.log(sortDsc)
 
+        // String sorting attempts (note: a-b doesn't work well for strings)
         sortAscStr=phones.sort((a,b)=>a-b)
         console.log(sortAscStr)
 
         sortDscStr=phones.sort((a,b)=>a-b)
         console.log(sortDscStr)
 
-        //reverse
+        // reverse(): Reverses the array order
         console.log(num.reverse())
         console.log(phones.reverse())
 
-        //Combining
-        concat=phones.concat("Meow")
+        // ARRAY COMBINING METHODS
+        // concat(): Combines arrays by appending values
+        concat=phones.concat("Meow")  // Adds "Meow" to the end of phones array
         console.log(concat)
 
+        // Spread operator (...): Modern way to combine arrays
         let laptops=["Asus","Apple","HP", "Dell","Acer" ]
-        let spreading=[...phones,...laptops]
+        let spreading=[...phones,...laptops]  // Combines both arrays
         console.log(spreading)
-        console.log(..."hello")
+        
+        // Spread operator with strings
+        console.log(..."hello")  // Spreads string into individual characters
 
         let str=["Hello","Maccha"]
-        console.log(...str)
-        console.log([...str])
+        console.log(...str)      // Outputs individual array elements
+        console.log([...str])    // Creates a new array copy
 
-        //flattening
+        // ARRAY FLATTENING
+        // flat(): Flattens nested arrays to specified depth
         let arry=[1, [2, [3]]]
-        let flatten=arry.flat(1
-            
-        );
+        let flatten=arry.flat(1)  // Flattens one level deep
         console.log(flatten)
-
-
 
     </script>
 

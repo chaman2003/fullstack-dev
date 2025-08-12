@@ -4,56 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript Destructuring</title>
 </head>
 
 <body>
     <script>
+        /**
+         * JAVASCRIPT DESTRUCTURING
+         * 
+         * This file demonstrates destructuring in JavaScript, which is a convenient way
+         * to extract values from arrays or properties from objects into distinct variables.
+         * Introduced in ES6 (ECMAScript 2015).
+         */
 
-        //destructing 
+        // ARRAY DESTRUCTURING
+        // Unpacking values from an array into individual variables
         let fruits = ["apple", "banana", "Mango"]
-        let [first, second, three] = fruits
-        console.log(first)
+        let [first, second, three] = fruits  // Assign each array item to separate variables
+        console.log(first)  // Outputs: "apple"
 
+        // OBJECT DESTRUCTURING (commented example)
         let person = { "name": "chaman", "age": 22, "sex": "male" }
-
+        // Basic object destructuring
         // let {name,age,sex}=person
         // console.log(name,age,sex)
 
-        //nested destructing
+        // NESTED DESTRUCTURING
+        // Extracting values from deeply nested objects
         let man = {
             id: "69420",
             info: {
-
-                name: "chaman", age: 22, sex: "male", location: {
-                    area: "konankunte", state: "karnataka"
+                name: "chaman", 
+                age: 22, 
+                sex: "male", 
+                location: {
+                    area: "konankunte", 
+                    state: "karnataka"
                 }
             }
         }
+        // Extract id, name, age, sex, and area from nested structure
         let { id, info: { name, age, sex, location: { area } } } = man
-        console.log(id)
+        console.log(id)  // Outputs: "69420"
 
+        // DEFAULT VALUES IN DESTRUCTURING
+        // Providing fallback values if the destructured value is undefined
         let fruit = ["Orange"]
-        let [frst="Apricot", secnd="kiwi"] = fruits
-        console.log(first)
+        let [frst="Apricot", secnd="kiwi"] = fruits  // Second default won't be used
+        console.log(first)  // Outputs: "apple" (from earlier fruits array)
 
+        // REST PATTERN IN DESTRUCTURING
+        // Collecting remaining elements into a new array
         let animal=["cat","dog","dinosaur","cow","sheep","wolf"]
-        let [frist, ...rest]=animal
-        console.log(rest)
+        let [frist, ...rest]=animal  // frist="cat", rest=["dog","dinosaur","cow","sheep","wolf"]
+        console.log(rest)  // Outputs: ["dog","dinosaur","cow","sheep","wolf"]
 
-        //function destructing 
+        // FUNCTION DESTRUCTURING (commented example)
         // function add(){
-
         //     function adding(x,y){
         //         return x+y;
         //     }
         //     return ;
         // }
         // console.log(15+5)
-
-        
     </script>
 </body>
 
-
-</html
+</html>

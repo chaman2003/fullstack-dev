@@ -4,58 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spread and Rest Operators</title>
 </head>
 
 <body>
     <script>
+        /**
+         * JAVASCRIPT SPREAD AND REST OPERATORS
+         * 
+         * This file demonstrates the use of spread (...) and rest (...) operators in JavaScript.
+         * These are powerful ES6 features for working with arrays and objects.
+         */
 
-        //spread
+        // SPREAD OPERATOR WITH ARRAYS
+        // Expands an array into individual elements
         function spreadArg() {
             let arr1 = [1, 2, 3];
-            let arr2 = [...arr1, 4, 5, 6];
-            console.log(arr2);
+            let arr2 = [...arr1, 4, 5, 6];  // Expands arr1 and adds new elements
+            console.log(arr2);  // Outputs: [1, 2, 3, 4, 5, 6]
         }
         spreadArg()
 
+        // SPREAD OPERATOR WITH OBJECTS
+        // Copies properties from one object to another
         function spreadObj() {
             let obj1 = { name: "Chaman", Age: 23 };
-            let obj2 = { ...obj1, sex: "Male", location: "Bangalore" }
-            console.log(obj2);
+            let obj2 = { ...obj1, sex: "Male", location: "Bangalore" }  // Copies obj1 properties and adds new ones
+            console.log(obj2);  // Outputs: {name: "Chaman", Age: 23, sex: "Male", location: "Bangalore"}
         }
         spreadObj()
 
-        //rest
+        // REST OPERATOR WITH ARRAYS
+        // Collects remaining elements into an array
         function restArg() {
-            let { front, ...rest } = [1, 2, 3, 4, 5, 6]
-            console.log(rest);
+            let { front, ...rest } = [1, 2, 3, 4, 5, 6]  // Note: This doesn't work as expected with arrays
+            console.log(rest);  // Output will be unexpected since destructuring doesn't work this way with arrays
         }
         restArg()
 
+        // REST OPERATOR WITH OBJECTS
+        // Collects remaining properties into a new object
         function restObj() {
             let { front, ...rest } = { namee: "Chaman", Agee: 23, sexx: "Male", locationn: "Bangalore" }
-            console.log(rest);
+            console.log(rest);  // Outputs object with all properties except "front"
         }
         restObj()
 
         console.warn("")
-        //combine spread rest
+        // COMBINING SPREAD AND REST
+        // Demonstrating both operators in nested functions
         function combine() {
+            // Inner function using rest with objects
             function inner() {
                 let { front, ...rest } = { namee: "Chaman", Agee: 23, sexx: "Male", locationn: "Bangalore" }
-                console.log(rest);
+                console.log(rest);  // Outputs object with all properties except "front"
             }
             inner()
+            
+            // Using spread with objects
             let obj1 = { name: "Chaman", Age: 23 };
-            let obj2 = { ...obj1, sex: "Male", location: "Bangalore" }
-            console.log(obj2);
+            let obj2 = { ...obj1, sex: "Male", location: "Bangalore" }  // Copies obj1 and adds new properties
+            console.log(obj2);  // Outputs: {name: "Chaman", Age: 23, sex: "Male", location: "Bangalore"}
         }
         combine()
-
-
-
-
-
     </script>
 </body>
 
