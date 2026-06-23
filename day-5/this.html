@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // "use strict"
+
+        console.warn("this in global scope")
+        console.log(this)
+
+        console.warn("this in object")
+        const obj = {
+            name: "Chaman",
+            age: "22",
+            greet() {
+                console.log(this.age)
+            }
+        }
+        obj.greet();
+
+        console.warn("this in Function")
+
+        function show() {
+            console.log(this);
+        }
+        show();
+
+        console.warn("this in arrow fucnntion")
+        let person = (name) => {
+            console.log(this.name)
+        }
+
+        console.log(person)
+        console.log(person("chaman"))
+
+        console.warn("this in constructor")
+        function fruit() {
+            this.fruit = fruit;
+        }
+
+        const f = new fruit("Apple")
+        console.log(f)
+
+        class veggy {
+           namee(){ console.log("rishi") ;}
+        }
+
+        const v=new veggy()
+        v.namee();
+    </script>
+</body>
+
+</html>
