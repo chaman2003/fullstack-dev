@@ -1,12 +1,14 @@
-# React + Vite
+# Day 10 - React Code Splitting & Performance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Topics
+- React.lazy for lazy loading components
+- Suspense with fallback
+- Code splitting patterns
+- Performance optimization
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Files
+- `src/App.jsx` - Lazy loaded components with Suspense
+- `src/pages/Click.jsx` - Lazy loaded click handler
+- `src/pages/Form.jsx` - Lazy loaded form
+- `src/pages/Hover.jsx` - Lazy loaded hover component
+- `src/pages/Image.jsx` - Lazy loaded image

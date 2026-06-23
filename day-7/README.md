@@ -1,12 +1,14 @@
-# React + Vite
+# Day 7 - React Hooks Fundamentals
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Topics
+- useState hook (counter, input binding)
+- useEffect hook (dependency variations)
+- PropTypes for type checking
+- Props example (movie cards)
+- Conditional rendering
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Files
+- `src/componenets/Propexample.jsx` - Movie card list with props
+- `src/componenets/Card.jsx` - Card component with PropTypes
+- `src/hooks/UseStatee.jsx` - useState + useEffect with all dependency patterns
+- `src/App.jsx` - Main app
