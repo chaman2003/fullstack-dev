@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5 - Git & GitHub</title>
+    <style>
+        body { font-family: Arial; margin: 20px; line-height: 1.6; background: #f5f5f5; }
+        .card { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        h2 { color: #e44d26; border-bottom: 2px solid #e44d26; padding-bottom: 5px; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { background: #eee; padding: 2px 6px; border-radius: 3px; }
+        pre code { background: none; padding: 0; }
+        .cmd { color: #6a9955; }
+        .comment { color: #6a9955; }
+    </style>
+</head>
+<body>
+    <h1>Day 5: Git & GitHub</h1>
+
+    <div class="card">
+        <h2>What is Git?</h2>
+        <p>Git is a version control system that tracks changes in your code.</p>
+        <h2>What is GitHub?</h2>
+        <p>GitHub is a website where you store your Git repositories online.</p>
+    </div>
+
+    <div class="card">
+        <h2>1. Git Basics</h2>
+        <pre>
+<span class="cmd"># Initialize a new repo</span>
+git init
+
+<span class="cmd"># Check status</span>
+git status
+
+<span class="cmd"># Add files to staging</span>
+git add index.html
+git add .           <span class="comment"># add all files</span>
+
+<span class="cmd"># Commit changes</span>
+git commit -m "Initial commit"
+
+<span class="cmd"># See commit history</span>
+git log
+git log --oneline
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>2. Working with GitHub</h2>
+        <pre>
+<span class="cmd"># Clone a repo from GitHub</span>
+git clone https://github.com/username/repo.git
+
+<span class="cmd"># Add remote (connect local to GitHub)</span>
+git remote add origin https://github.com/username/repo.git
+
+<span class="cmd"># Push to GitHub</span>
+git push -u origin main
+
+<span class="cmd"># Pull latest changes</span>
+git pull origin main
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>3. Branching & Merging</h2>
+        <pre>
+<span class="cmd"># Create a new branch</span>
+git branch feature-login
+
+<span class="cmd"># Switch to a branch</span>
+git checkout feature-login
+<span class="comment"># OR create and switch in one command</span>
+git checkout -b feature-login
+
+<span class="cmd"># List branches</span>
+git branch
+
+<span class="cmd"># Merge a branch into current branch</span>
+git checkout main
+git merge feature-login
+
+<span class="cmd"># Delete a branch</span>
+git branch -d feature-login
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>4. Merge Conflicts</h2>
+        <p>When two people edit the same file, Git shows this:</p>
+        <pre>
+<<<<<<< HEAD
+console.log("My change");
+=======
+console.log("Their change");
+>>>>>>> feature-branch
+        </pre>
+        <p>Fix it by keeping the right code, removing the markers, then:</p>
+        <pre>
+git add file.js
+git commit -m "Resolved merge conflict"
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>5. .gitignore</h2>
+        <p>Files to ignore in your repo:</p>
+        <pre>
+node_modules/
+.env
+*.log
+.DS_Store
+        </pre>
+    </div>
+
+    <div class="card">
+        <h2>6. GitHub Pages</h2>
+        <p>Deploy a static site for free:</p>
+        <ol>
+            <li>Push your code to a GitHub repo</li>
+            <li>Go to repo Settings → Pages</li>
+            <li>Select branch "main" and folder "/ (root)"</li>
+            <li>Your site is live at: <code>https://username.github.io/repo-name</code></li>
+        </ol>
+    </div>
+
+    <div class="card">
+        <h2>7. Pull Requests & Forks</h2>
+        <ul>
+            <li><strong>Fork:</strong> Copy someone else's repo to your account</li>
+            <li><strong>Pull Request:</strong> Ask to merge your changes into their repo</li>
+            <li><strong>Steps:</strong> Fork → Clone → Make changes → Push → Create PR</li>
+        </ul>
+    </div>
+</body>
+</html>

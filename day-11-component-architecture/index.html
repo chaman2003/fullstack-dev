@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 11 - Component Architecture</title>
+  <style>
+    body { font-family: Arial; margin: 20px; line-height: 1.6; background: #f5f5f5; }
+    .card { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #333; }
+    h2 { color: #61dafb; border-bottom: 2px solid #61dafb; padding-bottom: 5px; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    code { background: #eee; padding: 2px 6px; border-radius: 3px; }
+    pre code { background: none; padding: 0; }
+  </style>
+</head>
+<body>
+  <h1>Day 11: Component Architecture & Design Patterns</h1>
+
+  <div class="card">
+    <h2>1. Smart vs Dumb Components</h2>
+    <p><strong>Smart (Container):</strong> Has state, handles logic, fetches data</p>
+    <p><strong>Dumb (Presentational):</strong> Just displays props, no logic, reusable</p>
+    <pre>
+// Smart Component
+function UsersPage() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/users')
+      .then(r => r.json())
+      .then(setUsers);
+  }, []);
+
+  return &lt;UserList users={users} /&gt;;
+}
+
+// Dumb Component
+function UserList({ users }) {
+  return (
+    &lt;ul&gt;
+      {users.map(user =&gt; (
+        &lt;li key={user.id}&gt;{user.name}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>2. Higher-Order Component (HOC)</h2>
+    <p>A function that takes a component and returns a new component with extra features.</p>
+    <pre>
+// HOC - adds loading state to any component
+function withLoading(Component) {
+  return function WithLoading({ isLoading, ...props }) {
+    if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;;
+    return &lt;Component {...props} /&gt;;
+  };
+}
+
+// Usage
+const UserListWithLoading = withLoading(UserList);
+
+function App() {
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/users')
+      .then(r =&gt; r.json())
+      .then(data =&gt; { setUsers(data); setLoading(false); });
+  }, []);
+
+  return &lt;UserListWithLoading isLoading={loading} users={users} /&gt;;
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>3. Reusable Components</h2>
+    <pre>
+// Reusable Button
+function Button({ children, variant = 'primary', onClick }) {
+  const styles = {
+    primary: { background: 'blue', color: 'white' },
+    secondary: { background: 'gray', color: 'white' },
+    danger: { background: 'red', color: 'white' },
+  };
+
+  return (
+    &lt;button
+      onClick={onClick}
+      style={{
+        ...styles[variant],
+        padding: '10px 20px',
+        border: 'none',
+        borderRadius: '5px',
+        cursor: 'pointer',
+      }}
+    &gt;
+      {children}
+    &lt;/button&gt;
+  );
+}
+
+// Usage
+&lt;Button variant="primary" onClick={() => alert("Clicked")}&gt;Save&lt;/Button&gt;
+&lt;Button variant="danger" onClick={() => alert("Deleted")}&gt;Delete&lt;/Button&gt;
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>4. Project Folder Structure</h2>
+    <pre>
+src/
+├── components/       # Reusable dumb components
+│   ├── Button.jsx
+│   ├── Card.jsx
+│   └── Input.jsx
+├── pages/            # Smart components (one per route)
+│   ├── Home.jsx
+│   ├── About.jsx
+│   └── Profile.jsx
+├── context/          # React Context providers
+│   └── AuthContext.jsx
+├── hooks/            # Custom hooks
+│   └── useAuth.js
+├── services/         # API calls
+│   └── api.js
+├── utils/            # Helper functions
+│   └── formatDate.js
+├── styles/           # CSS files
+│   ├── global.css
+│   └── variables.css
+├── App.jsx
+└── main.jsx
+    </pre>
+  </div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 12 - API Integration</title>
+  <style>
+    body { font-family: Arial; margin: 20px; line-height: 1.6; background: #f5f5f5; }
+    .card { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1, h2 { color: #333; }
+    h2 { border-bottom: 2px solid #646cff; padding-bottom: 5px; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    code { background: #eee; padding: 2px 6px; border-radius: 3px; }
+    pre code { background: none; padding: 0; }
+    button { padding: 8px 16px; margin: 5px; cursor: pointer; }
+    #result { margin-top: 15px; padding: 15px; background: #f0f0f0; border-radius: 5px; }
+    .user-card { border: 1px solid #ddd; padding: 10px; margin: 5px 0; border-radius: 5px; background: #fafafa; }
+  </style>
+</head>
+<body>
+  <h1>Day 12: API Integration with Fetch & Axios</h1>
+
+  <div class="card">
+    <h2>1. Fetch API - GET Request</h2>
+    <pre>
+async function getUsers() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    if (!response.ok) throw new Error('HTTP Error ' + response.status);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+  }
+}
+    </pre>
+    <button onclick="fetchUsers()">Fetch Users (GET)</button>
+    <div id="result"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. Fetch API - POST Request</h2>
+    <pre>
+async function createUser(userData) {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(userData),
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('POST error:', error);
+  }
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>3. Axios (if installed via CDN)</h2>
+    <pre>
+// With axios loaded, same calls are simpler:
+// GET
+const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+
+// POST
+const response = await axios.post('https://jsonplaceholder.typicode.com/users', {
+  name: 'John',
+  email: 'john@example.com'
+});
+
+// Axios auto-parses JSON and throws on bad status
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>4. Loading & Error States Pattern</h2>
+    <pre>
+function UserList() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetch('/api/users');
+        if (!res.ok) throw new Error('Failed to fetch');
+        const data = await res.json();
+        setUsers(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, []);
+
+  if (loading) return &lt;div&gt;Loading...&lt;/div&gt;;
+  if (error) return &lt;div&gt;Error: {error}&lt;/div&gt;;
+  return users.map(u =&gt; &lt;div key={u.id}&gt;{u.name}&lt;/div&gt;);
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>5. API Service Pattern</h2>
+    <pre>
+// services/userService.js
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
+
+export const userService = {
+  getAll: () =&gt; fetch(`${BASE_URL}/users`).then(r =&gt; r.json()),
+  getById: (id) =&gt; fetch(`${BASE_URL}/users/${id}`).then(r =&gt; r.json()),
+  create: (user) =&gt; fetch(`${BASE_URL}/users`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(user),
+  }).then(r =&gt; r.json()),
+  delete: (id) =&gt; fetch(`${BASE_URL}/users/${id}`, { method: 'DELETE' }),
+};
+
+// Usage in component
+import { userService } from '../services/userService';
+
+const users = await userService.getAll();
+    </pre>
+  </div>
+
+  <script>
+    async function fetchUsers() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = '<p>Loading...</p>';
+      try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const users = await res.json();
+        resultDiv.innerHTML = users.map(u => `
+          <div class="user-card">
+            <strong>${u.name}</strong> - ${u.email} - ${u.company.name}
+          </div>
+        `).join('');
+      } catch (err) {
+        resultDiv.innerHTML = `<p style="color: red;">Error: ${err.message}</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

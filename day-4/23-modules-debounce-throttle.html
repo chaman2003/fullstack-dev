@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JS Modules & Debounce/Throttle</title>
+  <style>
+    body { font-family: Arial; margin: 20px; line-height: 1.6; background: #f5f5f5; }
+    .card { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1, h2 { color: #333; }
+    h2 { border-bottom: 2px solid #f7df1e; padding-bottom: 5px; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    code { background: #eee; padding: 2px 6px; border-radius: 3px; }
+    pre code { background: none; padding: 0; }
+  </style>
+</head>
+<body>
+  <h1>JS Modules (import/export) & Performance Techniques</h1>
+
+  <div class="card">
+    <h2>1. ES6 Modules - export</h2>
+    <pre>
+// math.js - named exports
+export const add = (a, b) => a + b
+export const subtract = (a, b) => a - b
+export const PI = 3.14159
+
+// utils.js - default export
+export default function greet(name) {
+  return `Hello, ${name}!`
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>2. ES6 Modules - import</h2>
+    <pre>
+// Import named exports
+import { add, subtract, PI } from './math.js'
+console.log(add(5, 3))     // 8
+console.log(PI)            // 3.14159
+
+// Import default export
+import greet from './utils.js'
+console.log(greet('John')) // Hello, John!
+
+// Import everything
+import * as math from './math.js'
+console.log(math.add(2, 3))
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>3. Using Modules in HTML</h2>
+    <pre>
+&lt;!-- Need type="module" in script tag --&gt;
+&lt;script type="module"&gt;
+  import { add } from './math.js'
+  console.log(add(10, 20))
+&lt;/script&gt;
+
+&lt;!-- Or link to external module file --&gt;
+&lt;script type="module" src="app.js"&gt;&lt;/script&gt;
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>4. Debounce - Wait until user stops typing</h2>
+    <pre>
+function debounce(func, delay = 300) {
+  let timeoutId
+  return function (...args) {
+    clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => func.apply(this, args), delay)
+  }
+}
+
+// Usage: search input that waits for user to stop typing
+const searchInput = document.getElementById('search')
+const handleSearch = debounce((event) => {
+  console.log('Searching:', event.target.value)
+  // Make API call here
+}, 500)
+
+searchInput.addEventListener('input', handleSearch)
+    </pre>
+    <p><strong>When to use debounce:</strong> Search inputs, form auto-save, window resize</p>
+  </div>
+
+  <div class="card">
+    <h2>5. Throttle - Limit how often a function runs</h2>
+    <pre>
+function throttle(func, limit = 200) {
+  let inThrottle
+  return function (...args) {
+    if (!inThrottle) {
+      func.apply(this, args)
+      inThrottle = setTimeout(() => (inThrottle = false), limit)
+    }
+  }
+}
+
+// Usage: scroll handler that runs max once every 200ms
+const handleScroll = throttle(() => {
+  console.log('Scrolled at:', new Date().toISOString())
+}, 200)
+
+window.addEventListener('scroll', handleScroll)
+    </pre>
+    <p><strong>When to use throttle:</strong> Scroll events, resize events, button click spam prevention</p>
+  </div>
+
+  <div class="card">
+    <h2>6. Live Demo - Type in the box</h2>
+    <div>
+      <input type="text" id="demoInput" placeholder="Type something..." style="padding: 10px; width: 300px; font-size: 16px;" />
+      <p><strong>Normal:</strong> <span id="normalOutput" style="color: red;">-</span></p>
+      <p><strong>Debounced (500ms):</strong> <span id="debounceOutput" style="color: green;">-</span></p>
+    </div>
+  </div>
+
+  <script>
+    // Debounce demo
+    function debounce(func, delay) {
+      let timeoutId
+      return function (...args) {
+        clearTimeout(timeoutId)
+        timeoutId = setTimeout(() => func.apply(this, args), delay)
+      }
+    }
+
+    const normalOut = document.getElementById('normalOutput')
+    const debounceOut = document.getElementById('debounceOutput')
+    const input = document.getElementById('demoInput')
+
+    input.addEventListener('input', (e) => {
+      normalOut.textContent = e.target.value
+    })
+
+    const debouncedUpdate = debounce((value) => {
+      debounceOut.textContent = value
+    }, 500)
+
+    input.addEventListener('input', (e) => {
+      debouncedUpdate(e.target.value)
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Day 22-23 - MERN Integration</title>
+  <style>
+    body { font-family: Arial; margin: 20px; line-height: 1.6; background: #f5f5f5; }
+    .card { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    h1 { color: #333; }
+    h2 { color: #4CAF50; border-bottom: 2px solid #4CAF50; padding-bottom: 5px; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+    code { background: #eee; padding: 2px 6px; border-radius: 3px; }
+    pre code { background: none; padding: 0; }
+  </style>
+</head>
+<body>
+  <h1>Day 22-23: MERN Stack Integration & Deployment</h1>
+
+  <div class="card">
+    <h2>1. Connect React Frontend to Express Backend</h2>
+    <pre>
+// Option 1: Proxy (Vite config)
+// vite.config.js
+export default defineConfig({
+  plugins: [react()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:5000'
+    }
+  }
+})
+
+// Now in React, just use relative URL:
+fetch('/api/notes')
+
+// Option 2: Full URL (no proxy)
+const API = 'http://localhost:5000/api'
+fetch(`${API}/notes`)
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>2. Axios Interceptors for JWT</h2>
+    <pre>
+// services/axios.js
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: '/api',
+})
+
+// Add token to every request automatically
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token')
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
+
+// Handle 401 errors globally
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      localStorage.removeItem('token')
+      window.location = '/login'
+    }
+    return Promise.reject(error)
+  }
+)
+
+export default api
+
+// Usage in component
+import api from '../services/axios'
+const res = await api.get('/notes')
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>3. Conditional Rendering Based on Auth</h2>
+    <pre>
+function App() {
+  const [user, setUser] = useState(null)
+
+  return (
+    &lt;AuthContext.Provider value={{ user, setUser }}&gt;
+      {user ? &lt;Dashboard /&gt; : &lt;LoginPage /&gt;}
+    &lt;/AuthContext.Provider&gt;
+  )
+}
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>4. CORS Setup (Backend)</h2>
+    <pre>
+import cors from 'cors'
+
+// Allow all (dev only)
+app.use(cors())
+
+// Specific origin (production)
+app.use(cors({
+  origin: 'https://your-app.vercel.app',
+  credentials: true,
+}))
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>5. .env Files</h2>
+    <pre>
+// Backend .env
+PORT=5000
+MONGODB_URI=mongodb+srv://...
+JWT_SECRET=your_secret_key_here
+
+// Frontend .env (Vite needs VITE_ prefix)
+VITE_API_URL=https://your-api.onrender.com
+    </pre>
+  </div>
+
+  <div class="card">
+    <h2>6. Production Build & Deploy</h2>
+    <pre>
+# Build React app
+cd frontend
+npm run build    # creates dist/ folder
+
+# Backend serves the built frontend
+app.use(express.static('../frontend/dist'))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('../frontend/dist/index.html'))
+})
+
+# Deploy frontend to Vercel
+vercel --prod
+
+# Deploy backend to Render
+# Push to GitHub → Render auto-deploys from repo
+    </pre>
+  </div>
+</body>
+</html>

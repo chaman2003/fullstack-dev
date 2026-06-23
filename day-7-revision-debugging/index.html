@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7 - Revision & Debugging</title>
+    <style>
+        body { font-family: Arial; margin: 20px; line-height: 1.6; background: #f5f5f5; }
+        .card { background: white; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        h2 { color: #e44d26; border-bottom: 2px solid #e44d26; padding-bottom: 5px; }
+        h3 { color: #666; }
+        pre { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        code { background: #eee; padding: 2px 6px; border-radius: 3px; }
+        pre code { background: none; padding: 0; }
+        .bug { background: #fff3f3; border-left: 4px solid red; padding: 10px; margin: 10px 0; }
+        .fix { background: #f0fff0; border-left: 4px solid green; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Day 7: Revision & Debugging Practice</h1>
+
+    <div class="card">
+        <h2>Chrome DevTools</h2>
+
+        <h3>Console Tab</h3>
+        <p>See logs, errors, and run JS code live.</p>
+        <pre>
+console.log("Normal message");
+console.warn("Warning message");
+console.error("Error message");
+console.table([{name:"John", age:30}, {name:"Jane", age:25}]);
+        </pre>
+
+        <h3>Elements Tab</h3>
+        <p>Inspect and edit HTML/CSS in real time.</p>
+        <ul>
+            <li>Right-click → Inspect Element</li>
+            <li>Edit HTML directly in the panel</li>
+            <li>Change CSS values and see updates live</li>
+        </ul>
+
+        <h3>Network Tab</h3>
+        <p>See all network requests, status codes, load times.</p>
+        <ul>
+            <li>Check if API calls are working (200 vs 404 vs 500)</li>
+            <li>See request payload and response data</li>
+            <li>Check load times for images and scripts</li>
+        </ul>
+
+        <h3>Sources Tab</h3>
+        <p>Set breakpoints and debug JS step by step.</p>
+    </div>
+
+    <div class="card">
+        <h2>Using Breakpoints</h2>
+        <pre>
+function calculateTotal(prices) {
+    let total = 0;
+    for (let i = 0; i &lt; prices.length; i++) {
+        total += prices[i];  // Put breakpoint here
+    }
+    return total;
+}
+
+const result = calculateTotal([10, 20, 30, 40]);
+console.log(result);
+        </pre>
+        <p><strong>How:</strong> Open Sources tab → Find your JS file → Click line number to add breakpoint → Reload page</p>
+    </div>
+
+    <div class="card">
+        <h2>Common JS Errors</h2>
+
+        <div class="bug">
+            <strong>ReferenceError: x is not defined</strong>
+            <pre>console.log(x); // x was never declared</pre>
+            <div class="fix">Fix: Declare the variable first: <code>let x = 5;</code></div>
+        </div>
+
+        <div class="bug">
+            <strong>TypeError: Cannot read property of undefined</strong>
+            <pre>const user = null;
+console.log(user.name); // user is null</pre>
+            <div class="fix">Fix: Check if it exists first: <code>if (user) console.log(user.name);</code></div>
+        </div>
+
+        <div class="bug">
+            <strong>NaN (Not a Number)</strong>
+            <pre>let result = "hello" - 5; // NaN</pre>
+            <div class="fix">Fix: Make sure you're doing math on numbers</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>CSS Debugging Tips</h2>
+        <ul>
+            <li><strong>Add border:</strong> <code>* { border: 1px solid red; }</code> to see all element boxes</li>
+            <li><strong>Check specificity:</strong> A more specific selector overrides a less specific one</li>
+            <li><strong>Inheritance:</strong> Not all CSS properties are inherited (e.g. width, height, margin aren't)</li>
+            <li><strong>DevTools:</strong> Check "Computed" tab to see final CSS values</li>
+            <li><strong>:hover not working?</strong> In Elements tab, right-click element → Force State → :hover</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Practice Challenge</h2>
+        <p>Find and fix the bugs below:</p>
+        <div class="bug">
+            <strong>Buggy Code:</strong>
+            <pre>
+function getGreeting(name) {
+    return "Hello " + name;
+}
+
+const user = {
+    firstName: "John"
+};
+
+console.log(getGreeting(user.fullName)); // Bug!
+console.log(5 + "5"); // What does this return?
+            </pre>
+        </div>
+    </div>
+
+    <script>
+        // Debugging practice - check console
+        console.log("=== Debugging Practice ===");
+
+        // Breakpoint practice
+        function addNumbers(a, b) {
+            debugger; // This acts like a breakpoint
+            return a + b;
+        }
+        console.log(addNumbers(5, 10));
+    </script>
+</body>
+</html>
